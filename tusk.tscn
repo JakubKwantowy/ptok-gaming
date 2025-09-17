@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://csg2ho3pm7iyk"]
+
+[ext_resource type="Script" uid="uid://6mlx18syyyhq" path="res://tusk.gd" id="1_2hlel"]
+[ext_resource type="Texture2D" uid="uid://d2fc3o105g6uw" path="res://tuszczek-removebg-preview.png" id="2_pyj1k"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2hlel"]
+size = Vector2(139, 229)
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+script = ExtResource("1_2hlel")
+
+[node name="Tuszczek-removebg-preview" type="Sprite2D" parent="."]
+position = Vector2(-1.52588e-05, -3)
+scale = Vector2(0.580882, 0.580882)
+texture = ExtResource("2_pyj1k")
+
+[node name="KillShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(5.5, 1.5)
+shape = SubResource("RectangleShape2D_2hlel")
+debug_color = Color(0.994851, 0, 0.215299, 0.42)

@@ -1,0 +1,49 @@
+[gd_scene load_steps=7 format=3 uid="uid://dieiyxpooc562"]
+
+[ext_resource type="Texture2D" uid="uid://26vgcpaplhjg" path="res://bg.webp" id="1_e84uw"]
+[ext_resource type="PackedScene" uid="uid://bgr6lmuhpjpap" path="res://bird.tscn" id="2_03vxx"]
+[ext_resource type="Script" uid="uid://6mlx18syyyhq" path="res://tusk.gd" id="3_85j56"]
+[ext_resource type="Texture2D" uid="uid://d2fc3o105g6uw" path="res://tuszczek-removebg-preview.png" id="4_ayyaq"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_0xm2m"]
+normal = Vector2(-3.97603e-07, -1)
+distance = -66.1929
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7mycd"]
+radius = 107.787
+
+[node name="Node2D" type="Node2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="Bg" type="Sprite2D" parent="StaticBody2D"]
+position = Vector2(10, -60)
+scale = Vector2(3.38884, 3.38884)
+texture = ExtResource("1_e84uw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(8.00006, -1)
+scale = Vector2(2.52627, 2.52627)
+shape = SubResource("WorldBoundaryShape2D_0xm2m")
+
+[node name="Ptok" parent="." instance=ExtResource("2_03vxx")]
+
+[node name="Camera2D" type="Camera2D" parent="Ptok"]
+position = Vector2(-9, 0)
+zoom = Vector2(0.62, 0.62)
+position_smoothing_enabled = true
+position_smoothing_speed = 9.0
+
+[node name="Tusk" type="CharacterBody2D" parent="."]
+position = Vector2(1615, 0)
+script = ExtResource("3_85j56")
+
+[node name="Tuszczek-removebg-preview" type="Sprite2D" parent="Tusk"]
+position = Vector2(-1.52588e-05, -3)
+scale = Vector2(0.580882, 0.580882)
+texture = ExtResource("4_ayyaq")
+
+[node name="KillShape2D" type="CollisionShape2D" parent="Tusk"]
+position = Vector2(5, 10)
+shape = SubResource("CircleShape2D_7mycd")
+debug_color = Color(0.994851, 0, 0.215299, 0.42)
