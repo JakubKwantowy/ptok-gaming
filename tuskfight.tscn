@@ -9,8 +9,9 @@
 normal = Vector2(-3.97603e-07, -1)
 distance = -66.1929
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_7mycd"]
-radius = 107.787
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_e84uw"]
+radius = 74.0
+height = 222.0
 
 [node name="Node2D" type="Node2D"]
 
@@ -44,6 +45,6 @@ scale = Vector2(0.580882, 0.580882)
 texture = ExtResource("4_ayyaq")
 
 [node name="KillShape2D" type="CollisionShape2D" parent="Tusk"]
-position = Vector2(5, 10)
-shape = SubResource("CircleShape2D_7mycd")
+position = Vector2(10, 4)
+shape = SubResource("CapsuleShape2D_e84uw")
 debug_color = Color(0.994851, 0, 0.215299, 0.42)
