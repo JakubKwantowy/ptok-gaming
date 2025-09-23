@@ -1,17 +1,18 @@
-[gd_scene load_steps=7 format=3 uid="uid://dieiyxpooc562"]
+[gd_scene load_steps=9 format=3 uid="uid://dieiyxpooc562"]
 
 [ext_resource type="Texture2D" uid="uid://26vgcpaplhjg" path="res://bg.webp" id="1_e84uw"]
 [ext_resource type="PackedScene" uid="uid://bgr6lmuhpjpap" path="res://bird.tscn" id="2_03vxx"]
+[ext_resource type="AudioStream" uid="uid://dx78dmx7dvaei" path="res://tuskbftheme.mp3" id="3_03vxx"]
 [ext_resource type="Script" uid="uid://6mlx18syyyhq" path="res://tusk.gd" id="3_85j56"]
 [ext_resource type="Texture2D" uid="uid://d2fc3o105g6uw" path="res://tuszczek-removebg-preview.png" id="4_ayyaq"]
+[ext_resource type="AudioStream" uid="uid://ct8x5jv317nt8" path="res://tuskjumpsfx.mp3" id="6_85j56"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_0xm2m"]
 normal = Vector2(-3.97603e-07, -1)
 distance = -66.1929
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_e84uw"]
-radius = 74.0
-height = 222.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_7mycd"]
+radius = 107.787
 
 [node name="Node2D" type="Node2D"]
 
@@ -35,6 +36,11 @@ zoom = Vector2(0.62, 0.62)
 position_smoothing_enabled = true
 position_smoothing_speed = 9.0
 
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Ptok"]
+stream = ExtResource("3_03vxx")
+volume_db = 6.261
+autoplay = true
+
 [node name="Tusk" type="CharacterBody2D" parent="."]
 position = Vector2(1615, 0)
 script = ExtResource("3_85j56")
@@ -45,6 +51,14 @@ scale = Vector2(0.580882, 0.580882)
 texture = ExtResource("4_ayyaq")
 
 [node name="KillShape2D" type="CollisionShape2D" parent="Tusk"]
-position = Vector2(10, 4)
-shape = SubResource("CapsuleShape2D_e84uw")
+position = Vector2(5, 10)
+shape = SubResource("CircleShape2D_7mycd")
 debug_color = Color(0.994851, 0, 0.215299, 0.42)
+
+[node name="Sprite2D" type="Sprite2D" parent="Tusk"]
+
+[node name="Node" type="Node" parent="Tusk"]
+
+[node name="Tuskjumpsfx" type="AudioStreamPlayer" parent="Tusk/Node"]
+stream = ExtResource("6_85j56")
+volume_db = 24.0

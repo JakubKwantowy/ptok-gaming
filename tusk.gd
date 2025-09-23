@@ -5,9 +5,11 @@ var ptok = 0
 var mode = 0
 var modeTick = 0
 var hasUsed = 0
+var tuskSfx = 0
 
 func _ready() -> void:
 	ptok = get_node("/root/Node2D/Ptok")
+	tuskSfx = $Node/Tuskjumpsfx
 
 func _physics_process(delta: float) -> void:
 	if mode == 0:
@@ -20,6 +22,7 @@ func _physics_process(delta: float) -> void:
 		move_and_slide()
 	if mode == 1:
 		if not hasUsed:
+			tuskSfx.play()
 			velocity.y = -1000
 			position.y -= 15
 			if self.position.x > ptok.position.x :
